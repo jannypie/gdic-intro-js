@@ -178,21 +178,24 @@
 				<h3>Let's Get Introduced -- to JS!</h3>
 				<p class="green">What is JavaScript?</p>
 				<ul>
-					<li><em>Scripting</em> language
-						<small>Writing <strong>commands</strong> (x + y) that tell your browser to do <strong>actions</strong> (addition!)</small>
+					<li class="fragment"><em>Scripting</em> language
+						<small>Writing <strong>commands</strong> (x + y) that tell your browser to do <strong>actions</strong></small>
+						<small>Versus <em>Declarative</em> language like CSS that describes appearance</small>
 					</li>
-					<li>Computers have <strong>Client-Server</strong> relationship
-						<small>Server sends information, Client displays it (browser)</small>
+					<li class="fragment">Computers are a <strong>Client-Server</strong> relationship
+						<small>Servers store, process, and send information. <em>Scripted</em></small>
+						<small>Clients display information (<strong>Browsers</strong> are Clients). <em>Declarative</em></small>
 					</li>
-					<li>JS can run on Client-side <em>and</em> Server-side!</li>
-					<li>Called "the language of the web" - for a reason!</li>
+					<li class="fragment">JS was written to fill a need for Browser scripting</li>
+					<li class="fragment">Called "the language of the web" - for a reason!</li>
+					<li class="fragment">JS was later adapted to also run on the Server side</li>
 				</ul>
 				<p>---</p>
-				<blockquote cite="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Introduction">
+				<blockquote class="fragment" cite="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Introduction">
 					"JavaScript can be connected to the <b>objects of its environment</b> (client or server) to provide programmatic control over them."
 				</blockquote>
 				<aside class="notes">
-					<p>Ability to interact with objects from its parent is a rare feature!</p>
+					<p>Ability to interact with objects from its environment is a rare feature!</p>
 				</aside>
 			</section>
 
@@ -234,7 +237,7 @@
 					<li>Click on the `Console` tab</li>
 					<li>Type in the following command:</li>
 				</ol>
-				<pre><code class="javascript">
+				<pre><code class="javascript try">
 	alert('Hello World!');
 					</code></pre>
 				<small>What action resulted?</small>
@@ -258,31 +261,30 @@
 			<section>
 				<h3>Variables</h3>
 				<p>Variables represent information</p>
-				<pre><code class="javascript">
-	x = 1
-	x + 2 = 3
+				<pre><code class="javascript">	x = 1
+	x + 2 =
 </code></pre>
 				<ul>
 					<li class="fragment"><em>Declared</em> (created) using the word <code>var</code>
-						<pre><code class="javascript">
-	var x = 1
+						<pre><code class="javascript">	var x = 1
 </code></pre>
 					</li>
 					<li class="fragment">When first declared, it does not have a value (it is <em>undefined</em>).</li>
 					<li class="fragment">Once given a starting value, it is no longer undefined. This is called <em>initializing</em> the variable.</li>
 				</ul>
-				<pre class="fragment">
-						<code class="javascript try">
-	var lsp; // declared but undefined
-	var lsp = "Lumpy Space Princess"; // initialized
+				<pre class="fragment"><code class="javascript">
+	var a; // declared but undefined
+	var a = "Aardvark"; // declared and initialized
+	var b;
+	b = "Bonobo"; // var isn't needed a second time
 					</code></pre>
 			</section>
 
 			<section>
 				<h3>Naming Variables</h3>
 				<ul>
-					<li class="fragment">Case-sensitive: ohio != Ohio</li>
-					<li class="fragment">Must be unique</li>
+					<li class="fragment">Case-sensitive: ohio != Ohio != OHIO</li>
+					<li class="fragment">Must be <em>unique</em></li>
 					<li class="fragment">Must start with a letter, <code>$</code>, or <code>_</code>
 						<ul class="fragment">
 							<li><code>$</code> is used by the <b>jQuery</b> library</li>
@@ -290,7 +292,6 @@
 							<li>Best just to start with a letter</li>
 						</ul>
 					</li>
-					<li class="fragment">Can only be made of letters, numbers, $, or _</li>
 					<li class="fragment">Best practice for multiple-word variables is to use <em>camelCase</em>:
 						<ul>
 							<li><code>var thisIsMyVariable;</code></li>
@@ -303,32 +304,45 @@
 			<section>
 				<h3>Using a Variable</h3>
 				<p>Once you have declared a variable, you can use it in your code. Just type the name of the variable.</p>
-				<pre><code class="javascript try">
+				<pre><code class="javascript">
 	var numberOfKittens = 5;
-	console.log(numberOfKittens);
+	numberOfKittens;
 					</code></pre>
 				<li class="fragment">The value of a variable can change (be updated) later (don't need to re-use <code>var</code>).</li>
-				<pre class="fragment"><code class="javascript try">
+				<pre class="fragment"><code class="javascript">
 	numberOfKittens = 13;
-	console.log(numberOfKittens);
+	numberOfKittens;
 					</code></pre>
 			</section>
 
 			<section>
 				<h3>Let's Develop It!</h3>
-				<p>In your console, create a variable and give it a valid name and a value. Then, display the value.</p>
-				<p class="fragment">Next, try this one:</p>
-				<pre class="fragment"><code class="javascript">
-	var kittenTitle = 'Admiral';
-	var kittenName = kittenTitle + ' Snuggles';
-	console.log(kittenName);
-					</code></pre>
-				<p class="fragment">What did you get?</p>
+				<ol>
+					<li>In your console, create a new variable for the number of puppies.</li>
+					<li>Create a variable for the total number of pets.</li>
+					<li>Using variables, set the number of pets equal to the number of kittens plus the number of puppies.</li>
+				</ol>
+				<div class="fragment">
+					<hr>
+					<p class="">Next, try this one:</p>
+					<pre class=""><code class="javascript try">
+		var kittenTitle = 'Admiral';
+		var kittenName = kittenTitle + ' Snuggles';
+		kittenName;
+						</code></pre>
+					<p class="">Those aren't numbers! What did you get?</p>
+				</div>
 				<blockquote class="fragment green">You're so fancy</blockquote>
 			</section>
 
 			<section>
 				<h2>Break Time</h2>
+				<pre class=""><code class="javascript try">
+	// The kitten got a demotion :-( Set his title to "Captain"
+
+	kittenName;
+	// What is the output of kittenName now? Why?
+					</code></pre>
 			</section>
 
 			<section>
@@ -472,24 +486,38 @@
 			</section>
 
 			<section>
-				<h2>JavaScript Basics</h2>
+				<h2>Writing Basics</h2>
 				<h3>Statements</h3>
-				<p>Each instruction in JS is a <b><em>statement</em></b>, like:</p>
-				<pre><code class="javascript">console.log('Hello Class!');</code></pre>
+				<p>Each instruction in JS is called a <b><em>statement</em></b>, like:</p>
+				<pre><code class="javascript">1 + 1; // One whole statement</code></pre>
 				<div class="fragment">
 					<p>After each individual statement, you <em>must</em> add a semicolon to end the command.</p>
 					<pre><code class="javascript">
-	console.log('I am glad to meet you.');
-	console.log('Fuzzy Wuzzy Was A Bear');
+	1 + 1                   // wrong!
+	"Turtle" + " sadface";  // right
 						</code></pre>
 				</div>
 				<blockquote class="fragment green">
 					If it's left off, it's up to the browser to decide what you meant.
+					<small>Could result in broken code.</small>
 				</blockquote>
 			</section>
 
 			<section>
-				<h3>Data Outputs</h3>
+				<h3>Statements</h3>
+				<p>Statements can take up more than one line</p>
+				<pre><code class="javascript">
+	var rhyme = "Oh, if you’re a bird, be an early bird " +
+							"And catch the worm for your breakfast plate. " +
+							"If you’re a bird, be an early early bird— " +
+							"But if you’re a worm, sleep late. ";
+
+	var poet = "Shel Silverstein";
+					</code></pre>
+			</section>
+
+			<section>
+				<h3>Make it talk to you</h3>
 				<pre><code class="javascript">
 	// Open a popup box:
 	alert('Hello World!');
@@ -525,14 +553,10 @@
 
 			<section>
 				<h3>Class 1 Homework</h3>
-				<p>Read over some introductory materials on JavaScript variables. If you want to look ahead, next time we'll be talking about <code>functions</code>, <code>arrays</code>, and <code>objects</code>.</p>
-				<ul>
-					<li><a href="https://www.codecademy.com/learn/javascript">Codecademy Intro to JS: Unit 1</a></li>
-					<li>Check out some browser-based JS tools like <a href="https://jsbin.com">jsbin</a> or <a href="http://jsfiddle.net/">jsfiddle</a>
-						<ul>
-							<li>Hint: Use the button labeled <code>run</code> to process your code</li>
-						</ul>
-					</li>
+				<ul>Review <strong><a href="https://javascript.info/first-steps">Javascript Fundamentals 1-11</a></strong>
+					<small>https://javascript.info/first-steps</small>
+					<li>If you want to look ahead, next time we'll be talking about <code>arrays</code>, <code>objects</code>, <code>loops</code>, and <code>functions</code>.</li>
+					<li>Check out some browser-based JS tools like <a href="https://codepen.io/">Codepen</a>, <a href="https://jsbin.com">jsbin</a> or <a href="http://jsfiddle.net/">jsfiddle</a></li>
 					<li>Bring any questions you think of to next class</li>
 				</ul>
 				<blockquote class="green fragment"><b>Remember:<br/>Every question is important!</b></blockquote>
@@ -998,3 +1022,4 @@ if (i % 7 == 0) {
 </body>
 
 </html>
+ml>
