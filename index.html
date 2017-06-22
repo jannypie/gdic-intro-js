@@ -114,10 +114,10 @@
 				<ul>
 					<li><a href="#/class1slides">Part 1: Introduction and Fundamentals</a>
 						<small>Getting set up</small>
-						<small>Data types, operators, conditionals, and variables</small>
+						<small>Variables, Data types, operators, and conditionals</small>
 					</li>
 					<li><a href="#/class2slides">Part 2: Working with JavaScript</a>
-						<small>Functions, arrays, loops, and conditionals</small>
+						<small>Arrays, Obects, Loops and Functions</small>
 					</li>
 					<li><a href="#/class3slides">Part 3</a></li>
 					<li><a href="#/class4slides">Part 4</a></li>
@@ -584,6 +584,179 @@
 					</li>
 				</ul>
 			</section>
+
+
+			<section>
+				<h3>Arrays</h3>
+				<pre><code class="javascript">
+ var arrayOfThings = [thing0, thing1, thing2, thing3];
+					</code></pre>
+				<ul>
+					<li class="fragment">Arrays are <strong>collections</strong> of values saved <strong>in order</strong></li>
+					<li class="fragment">Wrapped by square brackets <code>[]</code></li>
+					<li class="fragment">Location of a value is called its <strong>index</strong></li>
+					<li class="fragment"><strong>0-based</strong>: count starts at 0, not 1</li>
+					<li class="fragment green">"The <code>value</code> of <code>arrayOfThings</code> at <code>index 0</code> is <code>thing0</code>"</li>
+					<li class="fragment">You can put different types of data into an array</li>
+				</ul>
+				<pre class="fragment"><code>
+ var colors = ['Red','Orange','Yellow','Green','Blue','Indigo','Violet'];
+ var lotteryNumbers = [33, 72, 64, 18, 17, 85];
+ var mixOfThings = ['Cheese', 100, 'Sherlock', ["array","in","array"]];
+					</code></pre>
+			</section>
+
+			<section>
+				<h3>Using arrays</h3>
+				<p>Access items in an array by wrapping its possition with <em>"bracket notation"</em> <code>[]</code></p>
+				<pre><code class="javascript">
+ var catNames = ['Fluffy','Admiral Snuggles','Fizgig'];
+ var firstCat = catNames[0]; //0-based! Returns 'Fluffy'
+ var lastCat = catNames[2]; //1 less than length because 0-based!
+					</code></pre>
+				<p>Change a particular value by accessing its <code>index</code> using bracket notation</p>
+				<pre><code class="javascript">
+ catNames[2] = 'Fizzgig'; // Fix that spelling!
+ console.log(catNames);
+					</code></pre>
+			</section>
+
+			<section>
+				<h3>Using Arrays</h3>
+				<p>Get the length of an array with <code>.length</code></p>
+				<pre><code class="javascript">
+ var howManyCats = catNames.length; //Returns 3
+					</code></pre>
+				<p>Add something to the <em>end</em> of an array with <code>.push()</code></p>
+				<pre><code class="javascript">
+ var catNames = ['Fluffy','Admiral Snuggles','Fizgig'];
+ catNames.push('Miss Havisham');
+ console.log(catNames);
+					</code></pre>
+			</section>
+
+			<section>
+				<h3>Let's Develop It!</h3>
+				<ul>
+					<li>Create an array of your favorite foods.</li>
+					<li>Add a food without re-writing your array.</li>
+					<li>Change a food using bracket notation.</li>
+					<li>Output a few foods onto your screen.</li>
+				</ul>
+				<!-- <p class="fragment green">What if we wanted to simplify this?<br/>Could we write a function?</p> -->
+				<!-- <pre class="fragment"><code class="javascript"> -->
+				<!-- var catNames = ['Fluffy','Admiral Snuggles','Fizzgig','Miss Havisham'];
+
+ function printNames(arrayOfNames) {
+	 //Print out each cat name
+	 //What goes here?
+ }
+
+ printNames(catNames); -->
+				<!-- </code></pre> -->
+			</section>
+
+			<section>
+				<h3>Objects</h3>
+				<p>Objects let us store a collection of properties.</p>
+				<pre>
+					<code>
+	var objectName = {
+		propertyName: propertyValue,
+		propertyName: propertyValue,
+		propertyName: propertyValue,
+		...
+	};</code>
+				</pre>
+				<pre>
+					<code>
+	var aboutMe = {
+		hometown: 'Columbus, OH',
+		hair: 'Brunette',
+		likes: ['dogs', 'code', 'ice cream'],
+		birthday: {
+			month: 06,
+			day: 05
+		}
+	};</code>
+				</pre>
+			</section>
+			<section>
+				<h3>Accessing Objects</h3>
+				<p>You can retrieve values using "dot notation"</p>
+				<pre>
+					<code>
+	var aboutMe = {
+		hometown: 'Atlanta, GA',
+		hair: 'Auburn'
+	};
+
+	var myHometown = aboutMe.hometown;</code>
+				</pre>
+				<p>Or using "bracket notation" (like arrays)</p>
+				<pre>
+					<code>
+	var myHair = aboutMe['hair'];</code>
+				</pre>
+			</section>
+			<section>
+				<h3>Changing Objects</h3>
+				<p>You can use dot or bracket notation to change properties</p>
+				<pre><code>var aboutMe = {
+		hometown: 'Atlanta, GA',
+		hair: 'Auburn'
+	};
+	aboutMe.hair = 'blue';</code></pre>
+				<p>Add new properties</p>
+				<pre><code>aboutMe.gender = 'female';</code></pre>
+				<p>Or delete them</p>
+				<pre><code>delete aboutMe.gender;</code></pre>
+			</section>
+
+			<section>
+				<h3>Using Objects</h3>
+				<p>Just like other data types, objects can be passed into functions:</p>
+				<pre>
+					<code>
+	var lizzieTheCat = {
+		age: 18,
+		furColor: 'grey',
+		likes: ['catnip', 'milk'],
+		birthday: {month: 7, day: 17, year: 1996}
+	}
+
+	function describeCat(cat) {
+		console.log('This cat is ' + cat.age + ' years old with ' + cat.furColor + ' fur.');
+	}
+
+	describeCat(lizzieTheCat);</code>
+				</pre>
+			</section>
+
+			<section>
+				<h3>Arrays of Objects</h3>
+				<p>Since arrays can hold any data type, they can also hold objects</p>
+				<pre>
+					<code>
+	var myCats = [
+		{name: 'Lizzie', age: 18},
+		{name: 'Daemon', age: 1}
+	];
+
+	for (var i = 0; i < myCats.length; i++) {
+		var myCat = myCats[i];
+
+		console.log(myCat.name + ' is ' + myCat.age + ' years old.');
+	}</code>
+				</pre>
+			</section>
+
+			<section>
+				<h3>Let's Develop It</h3>
+				<p>Create objects for your other two cats.</p>
+				<p>Try displaying some information about your cats.</p>
+			</section>
+
 			<section>
 				<h3>Functions</h3>
 				<ul>
@@ -592,11 +765,11 @@
 					<li class="fragment">Just like variables, <em>declaring</em> a function creates it</li>
 				</ul>
 				<pre class="fragment"><code class="javascript">
-	function helloWorld(){} // Declared, now it exists!
+			function helloWorld(){} // Declared, now it exists!
 						</code></pre>
 				<pre class="fragment"><code class="javascript">
-	// Another way of writing it
-	var helloWorld = function(){}; // Stored as a variable
+			// Another way of writing it
+			var helloWorld = function(){}; // Stored as a variable
 						</code></pre>
 			</section>
 
@@ -734,75 +907,7 @@
 					</code></pre>
 			</section>
 
-			<section>
-				<h3>Arrays</h3>
-				<pre><code class="javascript">
- var arrayName = [thing0, thing1, thing2, thing3];
-					</code></pre>
-				<ul>
-					<li class="fragment">Arrays are <strong>ordered</strong> lists of values</li>
-					<li class="fragment">Wrapped by square brackets <code>[]</code></li>
-					<li class="fragment">Location of a value is called its <strong>index</strong></li>
-					<li class="fragment"><strong>0-based</strong>: count starts at 0, not 1</li>
-					<li class="fragment green">The <code>value</code> of <code>arrayName</code> at <code>index 0</code> is <code>thing0</code></li>
-					<li class="fragment">You can put different types of data into an array</li>
-				</ul>
-				<pre class="fragment"><code>
- var colors = ['Red','Orange','Yellow','Green','Blue','Indigo','Violet'];
- var lotteryNumbers = [33, 72, 64, 18, 17, 85];
- var mixOfThings = ['Cheese', 100, 'Sherlock', ["array","in","array"]];
-					</code></pre>
-			</section>
 
-			<section>
-				<h3>Using arrays</h3>
-				<p>Access items in an array by wrapping its possition with <em>"bracket notation"</em> <code>[]</code></p>
-				<pre><code class="javascript">
- var catNames = ['Fluffy','Admiral Snuggles','Fizgig'];
- var firstCat = catNames[0]; //0-based! Returns 'Fluffy'
- var lastCat = catNames[2]; //1 less than length because 0-based!
-					</code></pre>
-				<p>Change a particular value by accessing its <code>index</code> using bracket notation</p>
-				<pre><code class="javascript">
- catNames[2] = 'Fizzgig'; // Fix that spelling!
- console.log(catNames);
-					</code></pre>
-			</section>
-
-			<section>
-				<h3>Using Arrays</h3>
-				<p>Get the length of an array with <code>.length</code></p>
-				<pre><code class="javascript">
- var howManyCats = catNames.length; //Returns 3
-					</code></pre>
-				<p>Add something to the <em>end</em> of an array with <code>.push()</code></p>
-				<pre><code class="javascript">
- var catNames = ['Fluffy','Admiral Snuggles','Fizgig'];
- catNames.push('Miss Havisham');
- console.log(catNames);
-					</code></pre>
-			</section>
-
-			<section>
-				<h3>Let's Develop It!</h3>
-				<ul>
-					<li>Create an array of your favorite foods.</li>
-					<li>Add a food without re-writing your array.</li>
-					<li>Change a food using bracket notation.</li>
-					<li>Output a few foods onto your screen.</li>
-				</ul>
-				<p class="fragment green">What if we wanted to simplify this?<br/>Could we write a function?</p>
-				<pre class="fragment"><code class="javascript">
- var catNames = ['Fluffy','Admiral Snuggles','Fizzgig','Miss Havisham'];
-
- function printNames(arrayOfNames) {
-	 //Print out each cat name
-	 //What goes here?
- }
-
- printNames(catNames);
-					</code></pre>
-			</section>
 
 			<section>
 				<h3>Loops</h3>
