@@ -610,14 +610,15 @@
 				<h3>Using arrays</h3>
 				<p>Access items in an array by wrapping its possition with <em>"bracket notation"</em> <code>[]</code></p>
 				<pre><code class="javascript">
- var catNames = ['Fluffy','Admiral Snuggles','Fizgig'];
- var firstCat = catNames[0]; //0-based! Returns 'Fluffy'
- var lastCat = catNames[2]; //1 less than length because 0-based!
+ var catName = 'Snuggles';
+ var catRanks = ['Admiral','Captain','Commander','Lieutenant','Ensign'];
+ catRanks[4] = ?
 					</code></pre>
-				<p>Change a particular value by accessing its <code>index</code> using bracket notation</p>
+				<p>Change a particular value by accessing its <code>index</code> also using bracket notation</p>
 				<pre><code class="javascript">
- catNames[2] = 'Fizzgig'; // Fix that spelling!
+ catRanks[2] = 'Colonel';
  console.log(catNames);
+ console.log("My cat was just promoted! He is now " + catRanks[2] + " " + catName);
 					</code></pre>
 			</section>
 
