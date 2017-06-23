@@ -631,7 +631,7 @@
 				<p>Add something to the <em>end</em> of an array with <code>.push()</code></p>
 				<pre><code class="javascript">
  var catNames = ['Fluffy','Admiral Snuggles','Fizgig'];
- catNames.push('Miss Havisham');
+ catNames.push('Miss Havisham'); // arrayName.push(), don't need var
  console.log(catNames);
 					</code></pre>
 			</section>
@@ -644,17 +644,6 @@
 					<li>Change an animal using bracket notation.</li>
 					<li>Output a few animals onto your screen.</li>
 				</ul>
-				<!-- <p class="fragment green">What if we wanted to simplify this?<br/>Could we write a function?</p> -->
-				<!-- <pre class="fragment"><code class="javascript"> -->
-				<!-- var catNames = ['Fluffy','Admiral Snuggles','Fizzgig','Miss Havisham'];
-
- function printNames(arrayOfNames) {
-	 //Print out each cat name
-	 //What goes here?
- }
-
- printNames(catNames); -->
-				<!-- </code></pre> -->
 			</section>
 
 			<section>
@@ -705,6 +694,7 @@
 	var myHair = aboutMe['hair'];</code>
 				</pre>
 			</section>
+
 			<section>
 				<h3>Changing Objects</h3>
 				<p>You can use dot or bracket notation to change properties</p>
@@ -715,28 +705,6 @@
 	aboutMe.hair = 'blue';</code></pre>
 				<p>Add new properties</p>
 				<pre><code>aboutMe.gender = 'female';</code></pre>
-				<p>Or delete them</p>
-				<pre><code>delete aboutMe.gender;</code></pre>
-			</section>
-
-			<section>
-				<h3>Using Objects</h3>
-				<p>Just like other data types, objects can be passed into functions:</p>
-				<pre>
-					<code>
-	var lizzieTheCat = {
-		age: 18,
-		furColor: 'grey',
-		likes: ['catnip', 'milk'],
-		birthday: {month: 7, day: 17, year: 1996}
-	}
-
-	function describeCat(cat) {
-		console.log('This cat is ' + cat.age + ' years old with ' + cat.furColor + ' fur.');
-	}
-
-	describeCat(lizzieTheCat);</code>
-				</pre>
 			</section>
 
 			<section>
@@ -748,13 +716,9 @@
 		{name: 'Lizzie', age: 18},
 		{name: 'Daemon', age: 1}
 	];
-
-	for (var i = 0; i < myCats.length; i++) {
-		var myCat = myCats[i];
-
-		console.log(myCat.name + ' is ' + myCat.age + ' years old.');
-	}</code>
+</code>
 				</pre>
+				<p>And objects can hold arrays</p>
 			</section>
 
 			<section>
@@ -833,6 +797,20 @@
 			</section>
 
 			<section>
+				<h3>Using Objects as Arguments</h3>
+				<p>Just like other data types, objects can be passed into functions:</p>
+				<pre>
+					<code>
+	var lizzieTheCat = {
+		age: 18,
+		furColor: 'grey',
+		likes: ['catnip', 'milk'],
+		birthday: {month: 7, day: 17, year: 1996}
+	}
+</code></pre>
+			</section>
+
+			<section>
 				<h3>More on Arguments</h3>
 				<ul>
 					<li>Pass multiple arguments</li>
@@ -862,6 +840,48 @@
 					</code></pre>
 			</section>
 
+
+			<section>
+				<h3>Function Returns</h3>
+				<ul>
+					<li>The keyword <code>return</code> produces a value at the end of the function</li>
+					<li>Immediately exits the function</li>
+				</ul>
+				<pre><code class="javascript">
+		var numberOfKittens = 5;
+		var numberOfPuppies = 4;
+
+		function addAnimals(puppies,kittens){
+		return (puppies + kittens);
+		console.log(puppies > kittens); //Will never get to this line
+		}
+
+		addAnimals(numberOfPuppies,numberOfKittens); // Has returned 9
+					</code></pre>
+				<p class="fragment">But how do you know?!</p>
+			</section>
+
+			<section>
+				<h3>Ways to use Returns</h3>
+				<pre><code class="javascript">
+		var numberOfKittens = 5;
+		var numberOfPuppies = 4;
+
+		function addAnimals(puppies,kittens){
+		return (puppies + kittens);
+		}
+
+		// Save the returned value as a variable
+		// then output the variable
+		var myAnimals = addAnimals(numberOfPuppies,numberOfKittens);
+		document.write(myAnimals);
+
+		// Output the returned value directly
+		document.write(addAnimals(numberOfPuppies,numberOfKittens));
+					</code></pre>
+			</section>
+
+
 			<section>
 				<h3>Let's Develop It!</h3>
 				<p>Writing multiple lines in your console gets tough, so let's use <a href="http://codepen.io/pen/">Codepen.io</a></p>
@@ -872,47 +892,6 @@
 					<li>Call your function by passing it your first and last names as <code>strings</code></li>
 				</ul>
 			</section>
-
-			<section>
-				<h3>Function Returns</h3>
-				<ul>
-					<li>The keyword <code>return</code> produces a value at the end of the function</li>
-					<li>Immediately exits the function</li>
-				</ul>
-				<pre><code class="javascript">
- var numberOfKittens = 5;
- var numberOfPuppies = 4;
-
- function addAnimals(puppies,kittens){
-	return (puppies + kittens);
-	console.log(puppies > kittens); //Will never get to this line
- }
-
- addAnimals(numberOfPuppies,numberOfKittens); // Has returned 9
-					</code></pre>
-				<p class="fragment">But how do you know?!</p>
-			</section>
-
-			<section>
-				<h3>Ways to use Returns</h3>
-				<pre><code class="javascript">
- var numberOfKittens = 5;
- var numberOfPuppies = 4;
-
- function addAnimals(puppies,kittens){
-	return (puppies + kittens);
- }
-
- // Save the returned value as a variable
- // then output the variable
- var myAnimals = addAnimals(numberOfPuppies,numberOfKittens);
- document.write(myAnimals);
-
- // Output the returned value directly
- document.write(addAnimals(numberOfPuppies,numberOfKittens));
-					</code></pre>
-			</section>
-
 
 
 			<section>
