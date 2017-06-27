@@ -78,6 +78,10 @@
 			padding: 2px 4px;
 		}
 
+		.yellow {
+			color: #eab700;
+		}
+
 	</style>
 </head>
 
@@ -114,12 +118,14 @@
 				<ul>
 					<li><a href="#/class1slides">Part 1: Introduction and Fundamentals</a>
 						<small>Getting set up</small>
-						<small>Variables, Data types, operators, and conditionals</small>
+						<small>Variables, Data Types, Operators, and Comparators</small>
 					</li>
 					<li><a href="#/class2slides">Part 2: Working with JavaScript</a>
-						<small>Arrays, Obects, Loops and Functions</small>
+						<small>Arrays, Obects, Functions</small>
 					</li>
-					<li><a href="#/class3slides">Part 3</a></li>
+					<li><a href="#/class3slides">Part 3: More Working with Javascript</a>
+						<small>Loops and Conditionals, Errors, Scope, Methods</small>
+					</li>
 					<li><a href="#/class4slides">Part 4</a></li>
 					<li><a href="#/definitions">Definitions</a></li>
 					<!-- <li><a href="#/references">References</a></li> -->
@@ -567,7 +573,7 @@
 			<section id="class2slides">
 				<h2>Class 2 Slides</h2>
 				<p>Working with JavaScript</p>
-				<small>Functions, Arrays, Loops, and Conditionals</small>
+				<small>Arrays, Objects, Functions</small>
 			</section>
 
 			<section>
@@ -904,7 +910,242 @@
 				<blockquote class="green fragment"><b>Remember:<br/>Every question is important!</b></blockquote>
 			</section>
 
+			<!-- Class 3 Slides: Basics -->
+			<section id="class3slides">
+				<h2>Class 3 Slides</h2>
 
+			</section>
+
+
+			<section>
+				<h3>Methods</h3>
+				<p>Functions that are defined within an object are called <em>Object Methods</em></p>
+				<pre><code class="javascript">
+							var lunchObject = {
+								sandwich: "PB&J",
+								snack: "Oreos",
+								drink: "Fresca",
+								eat: function() {
+									console.log("Nom nom on " + this.sandwich);
+									console.log("Nom nom on " + this.snack);
+									console.log("Glug glug " + this.drink);
+								}
+							}
+
+							lunchObject.eat();
+						</code></pre>
+				<p class="green fragment">So what does that tell you about <code>console</code> and <code>document</code>?</p>
+			</section>
+
+			<section>
+				<h3>Common Methods</h3>
+				<div class="left-column fragment">
+					<h4>General</h4>
+					<ul>
+						<li class="green"><span class="yellow">console</span>.log()</li>
+						<li class="green"><span class="yellow">object</span>.length()</li>
+						<li class="green"><span class="yellow">object</span>.indexOf()</li>
+					</ul>
+					<p class="fragment"><a class="link" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">More on Objects</a></p>
+				</div>
+
+				<div class="right-column fragment">
+					<h4>DOM <small>(Document Object Model)</small></h4>
+					<ul>
+						<li class="green"><span class="yellow">document</span>.write()</li>
+						<li class="green"><span class="yellow">d</span>.getElementById()</li>
+						<li class="green"><span class="yellow">d</span>.getElementsByTagName()</li>
+						<li class="green"><span class="yellow">d</span>.appendChild()</li>
+						<li class="green"><span class="yellow">d</span>.addEventListener()</li>
+					</ul>
+					<p><a class="link" href="https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction">More DOM methods</a></p>
+					<p><a class="link" href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener">Event Listeners</a></p>
+				</div>
+
+			</section>
+
+
+			<section>
+				<h3>Scope</h3>
+				<p>Variable scope refers to the area of your program that can remember it</p>
+				<p class="fragment">Two types:
+					<strong><u>global</u></strong> and
+					<strong><u>local</u></strong>
+				</p>
+				<pre class="fragment">
+														<code class="javascript">
+										var outsideHouse = "global scope";
+										var goInside = function() {
+											var insideHouse = "local scope";
+										}
+
+										console.log(outsideHouse);
+										console.log(insideHouse);</code>
+													</pre>
+				<pre class="fragment">
+														<code class="javascript">
+										console.log(goInside);
+														</code>
+													</pre>
+			</section>
+
+
+			<section>
+				<h3>Scope</h3>
+				<pre class="fragment">
+														<code class="javascript">
+										var outsideHouse = "global scope";
+
+										var goInside = function() {
+											var insideHouse = "local scope";
+
+											var goIntoBedroom = function() {
+												var insideBedroom = "also local scope";
+
+												var lookInSafe = function() {
+													var insideSafe = "yep, still local!";
+												}
+											}
+										}</code>
+													</pre>
+			</section>
+
+
+			<section>
+				<h3>Control Flow</h3>
+				<p>Use
+					<code>if</code> to decide which lines of code to execute, based on a
+					<code>true</code> condition.</p>
+				<pre>
+					<code class="javascript">
+	if (condition) {
+		// statements to execute
+	}</code>
+				</pre>
+				<pre>
+					<code>
+	var bananas = 5;
+	if (bananas > 0) {
+		console.log ('You have some bananas!');
+	}</code>
+				</pre>
+				<p class="fragment green">What if you want multiple options?</p>
+			</section>
+
+			<section>
+				<h3>Control Flow</h3>
+				<pre>
+					<code class="javascript">
+	if (condition) {
+		// do one thing
+	} else {
+		// do another thing
+	}</code>
+				</pre>
+				<p>Runs the first
+					<strong>true</strong> condition it meets</p>
+				<pre class="fragment">
+					<code class="javascript">
+	var classSize = 15;
+
+	if (classSize > 15) {
+		console.log("Have class at Improving");
+	} else if (classSize > 10) {
+		console.log("Have class at Pillar");
+	} else if (classSize >= 5) {
+		console.log("Have class at Cardinal Solutions");
+	} else {
+		console.log("Aw bummer, we need at least 5 students!");
+	}</code>
+				</pre>
+
+			</section>
+
+			<section>
+				<h3>Let's Develop It</h3>
+				<p>Write a function
+					<code>weatherWear</code> that tells you what to wear outside:</p>
+				<ol>
+					<li>If it is less than 50 degrees, wear a coat.</li>
+					<li>If it is less than 30 degrees, wear a coat and a hat.</li>
+					<li>If it is less than 0 degrees, stay inside.</li>
+					<li>Otherwise, wear whatever you want.</li>
+				</ol>
+			</section>
+
+			<section>
+				<h3>Logical Operators</h3>
+				<table>
+					<thead>
+						<tr>
+							<th width="200px">Example</th>
+							<th width="150px">Name</th>
+							<th>Result</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>a &amp;&amp; b</td>
+							<td>AND</td>
+							<td>
+								<strong>
+									<code>TRUE</code>
+								</strong> if both a and b are
+								<strong>
+									<code>TRUE</code>
+								</strong>.</td>
+						</tr>
+						<tr>
+							<td>a || b</td>
+							<td>OR</td>
+							<td>
+								<strong>
+									<code>TRUE</code>
+								</strong> if either a or b is
+								<strong>
+									<code>TRUE</code>
+								</strong>.</td>
+						</tr>
+						<tr>
+							<td>! a</td>
+							<td>NOT</td>
+							<td>
+								<strong>
+									<code>TRUE</code>
+								</strong> if a is not
+								<strong>
+									<code>TRUE</code>
+								</strong>.</td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+
+			<section>
+				<h3>Using logical operators</h3>
+				<p>You can use these operators to combine conditions.</p>
+				<pre>
+					<code>
+	var bananas = 5;
+
+	if (bananas >=2 &amp;&amp; bananas <7) {
+		console.log ('You have a reasonable number of bananas');
+	} else {
+		console.log ('Check your banana supply');
+	}</code>
+				</pre>
+			</section>
+
+
+
+			<section>
+				<h2>Break time!</h2>
+			</section>
+
+			<!-- <section>
+				<h3>Errors</h3>
+				<p>The secret sauce of programming</p>
+			</section> -->
 
 			<section>
 				<h3>Loops</h3>
@@ -923,17 +1164,17 @@
 				</ul>
 			</section>
 
-			<!-- Loops -->
+
 			<section>
 				<h3>While loops</h3>
 				<p>Repeats the same code over and over until some condition is met</p>
 				<pre><code>
- var numberOfTacos = 10;
- while (numberOfTacos > 0) {
-  console.log('OM NOM NOM'); //Eat a taco
-  numberOfTacos =- 1; //Decrement by 1
- }
-					</code></pre>
+			var numberOfTacos = 10;
+			while (numberOfTacos > 0) {
+			console.log('OM NOM NOM'); //Eat a taco
+			numberOfTacos =- 1; //Decrement by 1
+			}
+				</code></pre>
 				<div class="fragment">
 					<p><code>while (numberOfTacos > 0)</code> is the ending condition</p>
 					<ul>
@@ -947,32 +1188,29 @@
 				<h3>Infinite Loops</h3>
 				<p>Make sure something changes in the loop, or your loop will go on forever...</p>
 			</section>
+
 			<section>
 				<h3>For loops</h3>
 				<p>For loops are very similar, but you declare a counter in the statement.</p>
 				<pre><code>
-//will count 1 to 10
-for (var i = 1; i &lt;= 10; i++) {
-console.log (i);
-}
-		</code></pre>
+			//will count 1 to 10
+			for (var i = 1; i &lt;= 10; i++) {
+			console.log (i);
+			}
+			</code></pre>
 			</section>
+
 			<section>
 				<h3>Break</h3>
 				<p>To exit a loop, use the break statement.</p>
 				<pre><code>
-//Count from 100 to 200
-for (var i = 100; i &lt;= 200; i++) {
-console.log('Testing ' + i);
-//Stop at the first multiple of 7
-if (i % 7 == 0) {
-		console.log('Found it! ' + i);
-		break;
-}
-}
-		</code></pre>
+			//Count from 100 to 200
+			for (var i = 100; i &lt;= 200; i++) {
+			console.log('Testing ' + i);
+			break;
+			}
+			</code></pre>
 			</section>
-
 
 			<section>
 				<h3>Iterating through arrays</h3>
@@ -982,22 +1220,36 @@ if (i % 7 == 0) {
 			for (var i = 0; i &lt; rainbowColors.length; i++) {
 			console.log(rainbowColors[i]);
 			}
-						</code></pre>
-			</section>
-			<section>
-				<h3>Let's Develop It</h3>
-				<p>Use a loop to make a list of all your favorite foods.</p>
-			</section>
-			<!-- Class 3 Slides: Basics -->
-			<section id="class3slides">
-				<h2>Class 3 Slides</h2>
-
+					</code></pre>
 			</section>
 
 			<section>
-				<h3>Errors</h3>
-				<p>The secret sauce of programming</p>
+				<h3>Let's Develop It!</h3>
+				<p>Write a function that loops through the numbers 1-100 and meets the following conditions:</p>
+				<ul>
+					<li>
+						If the number is divisible by 3,
+						<code>console.log("Girl")</code>;
+					</li>
+					<li>
+						If the number is divisible by 5,
+						<code>console.log("Develop")</code>;
+					</li>
+					<li>
+						If the number is divisible by 3 AND 5,
+						<code>console.log("Girl Develop It!")</code>;
+					</li>
+					<li>
+						Otherwise, don't do anything!
+					</li>
+				</ul>
+				<small>Hint: Use a variable that starts at 1 and increments each loop.</small>
 			</section>
+
+
+
+
+
 
 			<!-- Class 4 Slides: Basics -->
 			<section id="class4slides">
