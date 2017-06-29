@@ -1435,65 +1435,16 @@
 			<section>
 				<h3>Let's Develop It</h3>
 				<p>Collect a value from the input box on the page. Use it inside a function and display the task on the page.</p>
+				<p>Let's make a whole list! Use `document.CreateElement()` to create a list element (`ol` or `ul`).</p>
+				<p>Use object.appendChild() to add your list to the `div` on the page.</p>
+				<p>Write a function that listens for the submit event</p>
+				<p>Get the value of the input box</p>
+				<p>Create a list item element `li` with the text from your input</p>
+				<p>Append that item to the list on the page
+					<small>Tip: If you have problems, try querying for the list again.</small>
+				</p>
 			</section>
 
-			<section>
-				<h3>Timing Events</h3>
-				<p>In JavaScript, it is possible to execute some code at specified time intervals.</p>
-				<ul>
-					<li><code>setInterval()</code> executes a function over and over again, at specified time intervals</li>
-					<li><code>setTimeout()</code> executes a function, once, after waiting a specified number of milliseconds</li>
-				</ul>
-			</section>
-			<section>
-				<h3>setInterval</h3>
-				<p>The syntax for <code>setInterval()</code> is:</p>
-				<pre><code>
-			setInterval(function, milliseconds);
-							</code></pre>
-				<p>For example, this is a simple clock:</p>
-				<pre><code>
-			var simpleClock = setInterval(myClock, 1000);
-			function myClock() {
-			    var d = new Date();
-			    var t = d.toLocaleTimeString();
-			    document.getElementById('resultsBox').innerHTML = t;
-			}
-			<!--line 214 has a purple { opening bracket, but line 218 has a white closing bracket, should it also be purple?}  -->
-							</code></pre>
-			</section>
-			<section>
-				<h3>clearInterval</h3>
-				<p>You can use <code>clearInterval()</code> to stop a setInterval loop:</p>
-				<pre><code>
-			clearInterval(intervalVariable)
-							</code></pre>
-				<p>To stop our clock:</p>
-				<pre><code>
-			function myStopFunction() {
-			    clearInterval(simpleClock);
-			}
-			<!--line 230 has a purple opening bracket { but line 232 has a white } closing bracket, should they be the same color?  -->
-							</code></pre>
-			</section>
-			<section>
-				<h3>setTimeout</h3>
-				<p>The method <code>setTimeout()</code> is similar, but it will only run once:</p>
-				<pre><code>
-			setTimeout(function, milliseconds);
-							</code></pre>
-				<p>For example, this code will wait 3 seconds, then create a popup box, unless the user triggers the <code>clearTimeout():</code></p>
-				<pre><code>
-			var helloBox;
-			function sayHello() {
-			    helloBox = setTimeout(function(){alert('Hello')},3000);
-			}
-			function dontSayIt() {
-			    clearTimeout(helloBox);
-			}
-			<!--line 245 and line 248 have purple opening brackets, but lines 247 and 250 have white closing brackets, should they all be the same colors?  -->
-							</code></pre>
-			</section>
 
 			<section>
 				<h2>End of Class!</h2>
