@@ -945,6 +945,7 @@
 						<li class="green"><span class="yellow">console</span>.log()</li>
 						<li class="green"><span class="yellow">object</span>.length()</li>
 						<li class="green"><span class="yellow">object</span>.indexOf()</li>
+						<li class="green"><span class="yellow">event</span>.preventDefault()</li>
 					</ul>
 					<p class="fragment"><a class="link" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">More on Objects</a></p>
 				</div>
@@ -955,6 +956,8 @@
 						<li class="green"><span class="yellow">document</span>.write()</li>
 						<li class="green"><span class="yellow">d</span>.getElementById()</li>
 						<li class="green"><span class="yellow">d</span>.getElementsByTagName()</li>
+						<li class="green"><span class="yellow">d</span>.querySelector()⭐️</li>
+						<li class="green"><span class="yellow">d</span>.querySelectorAll()⭐️</li>
 						<li class="green"><span class="yellow">d</span>.appendChild()</li>
 						<li class="green"><span class="yellow">d</span>.addEventListener()</li>
 					</ul>
@@ -1283,14 +1286,19 @@
 </code></pre>
 			</section>
 
+			<script type="text/javascript">
+				var onclickEvent = function() {
+					alert("AHOY Cap'n McSnugglemuffin!");
+				};
 
+			</script>
 
 
 			<section>
 				<h3>Events</h3>
 				<p>An 'event' is a type of object that is created when the user interacts with a web page.</p>
 				<p>For example, JS creates an event when a user clicks an element.</p>
-				<pre><code>
+				<pre onclick="alert('AHOY Capn McSnugglemuffin!');"><code>
 			element.onclick = function () {
 			  //code to execute when the click happens
 			};
@@ -1300,11 +1308,11 @@
 				<h3>Types of Events</h3>
 				<p>There are a <a href="http://www.w3schools.com/jsref/dom_obj_event.asp">variety of events</a>. Some of the most common:</p>
 				<ul>
-					<li>onclick: The event occurs when the user clicks on an element</li>
-					<li>onmouseover: The event occurs when the pointer is moved onto an element</li>
-					<li>onkeyup: The event occurs when the user releases a key</li>
-					<li>onload: The event occurs when a document has been loaded</li>
-					<li>onfocus: The event occurs when an element gets focus</li>
+					<li><strong>onclick</strong>: The event occurs when the user clicks on an element</li>
+					<li><strong>onmouseover</strong>: The event occurs when the pointer is moved onto an element</li>
+					<li><strong>onkeyup</strong>: The event occurs when the user releases a key</li>
+					<li><strong>onload</strong>: The event occurs when a document has been loaded</li>
+					<li><strong>onfocus</strong>: The event occurs when an element gets focus</li>
 				</ul>
 			</section>
 			<section>
@@ -1319,9 +1327,11 @@
 				<h3>Calling Functions from HTML</h3>
 				<p>You can call a function directly from your HTML code:</p>
 				<pre><code>
+			// html
 			&lt;button id="clickMe" onclick="sayHi()"&gt;Click Me!&lt;/button&gt;
 							</code></pre>
 				<pre><code>
+			// javascript
 			function sayHi() {
 			    alert ('Hi!');
 			}
@@ -1342,8 +1352,9 @@
 			</section>
 			<section>
 				<h3>Let's Develop It</h3>
-				<p>Download <a href="files/class4.zip">this week's sample code</a>.</p>
-				<p>Make some JavaScript code fire after an <code>onmouseover</code> event. Try adding the event to the HTML and adding a listening function.</p>
+				<p>Open a new Codepen</p>
+				<p>Add an element (any) in the HTML section</p>
+				<p>Make some JavaScript code fire after an <code>onmouseover</code> event. Then try adding a listening function.</p>
 
 			</section>
 
@@ -1358,7 +1369,7 @@
 							</code></pre>
 			</section>
 
-			<section>
+			<!-- <section>
 				<h3>This</h3>
 				<p>The keyword <code>this</code> references the element that the user has just interacted with:</p>
 				<pre><code>
@@ -1371,14 +1382,15 @@
 			  this.innerHTML = 'I've been clicked!';
 			};
 							</code></pre>
-			</section>
+			</section> -->
+
 			<section>
 				<h3>Let's Develop It</h3>
-				<p>Write code that targets this link:</p>
+				<p>Add a link element to your HTML:</p>
 				<pre><code>
-			&lt;a href="http://girldevelopit.com/" id="gdiLink"&gt;Girl Develop It&lt;/a&gt;
+			&lt;a href="http://girldevelopit.com/" class="gdiLink"&gt;Girl Develop It&lt;/a&gt;
 							</code></pre>
-				<p>When a user clicks the link, the page should display an error message instead of going to the Girl Develop It homepage.</p>
+				<p>When you click the link, the page should display an error message instead of going to the Girl Develop It homepage.</p>
 			</section>
 
 
@@ -1396,44 +1408,33 @@
 			</section>
 			<section>
 				<h3>Retrieving Form Data</h3>
-				<p>You retrieve the values of form elements using the <code>value</code> method:</p>
+				<p>Open the following Codepen in your browser:
+					<small><a href="https://codepen.io/jannypie/pen/ZyrpxM">https://codepen.io/jannypie/pen/ZyrpxM</a></small>
+				</p>
+				<p>You retrieve the values of form inputs using the <code>value</code> method:</p>
 				<pre><code>
-			var temperature = document.getElementById('temp').value;
-			console.log (temperature);
+			var thingToDo = document.querySelector('.js-task').value;
+			console.log (thingToDo);
 							</code></pre>
-				<p>You can retrieve the value of a form at any time. Try <code>onblur</code> (when a form element loses focus).</p>
+				<p>You can retrieve the value of a form at any time. Try <code>onblur</code> (when a form element loses focus). Type text into the box and then click anywhere else on the page.</p>
 			</section>
-			<section>
-				<h3>Radio Buttons</h3>
-				<p>Radio buttons usually do not have IDs, so you will need to use an array:</p>
-				<pre><code>
-			var radios = document.getElementsByName('tempFormat');
 
-			for (var i = 0, length = radios.length; i &lt; length; i++) {
-			    if (radios[i].checked) {
-			        var radioButtonValue = radios[i].value;
-			        // only one radio can be checked, so stop now
-			        break;
-			    }
-			}
-							</code></pre>
-			</section>
 			<section>
 				<h3>Submit buttons</h3>
 				<p>If you are going to retrieve form values with the submit button, be sure to prevent the default action!</p>
 				<pre><code>
-			var submitButton = document.getElementById('tempSubmitButton');
+			var submitButton = document.querySelector('js-submit');
 			submitButton.onclick = function () {
 			    event.preventDefault();
-			    var temperature = document.getElementById('temp').value;
-			    console.log (temperature);
+			    var task = document.querySelector('js-task').value;
+			    console.log (task);
 			}
 			<!--line 84 has a purple { opening bracket, but line 188 has a white } closing bracket. should they be the same color?-->
 							</code></pre>
 			</section>
 			<section>
 				<h3>Let's Develop It</h3>
-				<p>Collect a value from the input box on the page. Use it inside a function of some kind. For example, collect a number and multiply it by five or collect a name and display a greeting.</p>
+				<p>Collect a value from the input box on the page. Use it inside a function and display the task on the page.</p>
 			</section>
 
 			<section>
