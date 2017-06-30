@@ -1408,9 +1408,6 @@
 			</section>
 			<section>
 				<h3>Retrieving Form Data</h3>
-				<p>Open the following Codepen in your browser:
-					<small><a href="https://codepen.io/jannypie/pen/ZyrpxM">https://codepen.io/jannypie/pen/ZyrpxM</a></small>
-				</p>
 				<p>You retrieve the values of form inputs using the <code>value</code> method:</p>
 				<pre><code>
 			var thingToDo = document.querySelector('.js-task').value;
@@ -1434,6 +1431,9 @@
 			</section>
 			<section>
 				<h3>Let's Develop It</h3>
+				<p>Open the following Codepen in your browser:
+					<small><a href="https://codepen.io/jannypie/pen/ZyrpxM">https://codepen.io/jannypie/pen/ZyrpxM</a></small>
+				</p>
 				<p>Collect a value from the input box on the page. Use it inside a function and display the task on the page.</p>
 			</section>
 
@@ -1444,7 +1444,9 @@
 					<li>Use <code>object.appendChild()</code> to add your list to the <code>div</code> on the page.</li>
 					<li>Write a function that listens for the submit event</li>
 					<li>Get the value of the input box</li>
-					<li>Create a list item element <code>li</code> with the text from your input</li>
+					<li>Create a list item element <code>li</code> with the text from your input
+						<small><code>document.createTextNode("text");</code> </small>
+					</li>
 					<li>Append that item to the list on the page
 						<small>Tip: If you have problems, try querying for the list again.</small>
 					</li>
